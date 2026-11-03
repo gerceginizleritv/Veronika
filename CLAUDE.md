@@ -18,7 +18,16 @@ python3 tools/md2docx.py referat/referat.md \
         --title referat/titulnyj_list.txt
 ```
 
-Требуется `pip3 install python-docx` (в свежем контейнере ставить заново).
+Требуется python-docx. **Ставить только так:**
+
+```bash
+python3 -m pip install python-docx
+```
+
+`pip3 install` в этом контейнере ставит пакет для Python 3.13, а `python3`
+— это 3.11, и скомпилированный lxml не подхватывается (`ModuleNotFoundError:
+No module named 'docx'` или `cannot import name 'etree' from 'lxml'`).
+В свежем контейнере ставить заново.
 
 ## Требования к оформлению (заданы преподавателем)
 
